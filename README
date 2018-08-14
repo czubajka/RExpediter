@@ -1,2 +1,8 @@
 TODO:
-project
+
+1. Connection to database. 
+2. Downloading data from database and showing them on a screen.
+3. Updating data in a database.
+4. Managing orders.
+5. Managing users.
+
