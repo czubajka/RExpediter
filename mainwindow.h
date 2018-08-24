@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include "database.h"
 
 class MainWindow : public QMainWindow
 {
