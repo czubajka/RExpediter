@@ -7,7 +7,7 @@
 enum Type : unsigned char {PRZYSTAWKA = 1, GLOWNE, DESER, DODATEK, NAPOJ, INNE};
 enum Status : unsigned char {ZAMOWIONE = 1, WYWOLANE, WYDANE, ANULOWANE, DOSTEPNE, NIEDOSTEPNE, OPLACONE, NIEOPLACONE };
 
-void addMenuItem(QSqlQuery &query, Type type_id, const QString &name, double price, const QString &description, Status status);
+bool addMenuItem(Type type_id, const QString &name, double price, const QString &description, Status status);
 
 static bool connectToDatabase()
 {
@@ -19,7 +19,7 @@ static bool connectToDatabase()
         db.setPort(3306);
         db.setDatabaseName("rexpeditor");
         db.setUserName("root");
-        db.setPassword("Q188iq199");
+        db.setPassword("Q188q199");
 
     if (!db.open())
     {
@@ -48,5 +48,8 @@ static bool closeConnection()
         std::cout << "Database connection closed" << std::endl;
     return true;
 };
+
+
+bool buildMenu(Type type);
 
 #endif // DATABASE_H

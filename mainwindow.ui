@@ -1,24 +1,131 @@
-<ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1518</width>
+    <height>979</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>MainWindow</string>
+  <property name="windowTitle">
+   <string>RExpediter</string>
   </property>
-  <widget class="QMenuBar" name="menubar" />
-  <widget class="QWidget" name="centralwidget" />
-  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>851</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_mains">
+     <attribute name="title">
+      <string>GŁÓWNE</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_starters">
+     <attribute name="title">
+      <string>PRZYSTAWKI</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_desserts">
+     <attribute name="title">
+      <string>DESERY</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_sides">
+     <attribute name="title">
+      <string>DODATKI</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_others">
+     <attribute name="title">
+      <string>INNE</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_bevereges">
+     <attribute name="title">
+      <string>NAPOJE</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="addMenuItemButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>680</y>
+      <width>161</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dodaj pozycję menu</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteMenuItemButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>720</y>
+      <width>161</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Usuń pozycję menu</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="editMenuItemButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>760</y>
+      <width>161</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edytuj pozycję menu</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1518</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <pixmapfunction></pixmapfunction>
- <connections/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>addMenuItemButton</sender>
+   <signal>released()</signal>
+   <receiver>addMenuItemButton</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>715</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>721</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
