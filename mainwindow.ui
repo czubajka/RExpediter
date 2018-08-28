@@ -110,22 +110,5 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>addMenuItemButton</sender>
-   <signal>released()</signal>
-   <receiver>addMenuItemButton</receiver>
-   <slot>animateClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>419</x>
-     <y>715</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>393</x>
-     <y>721</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -19,7 +19,7 @@ bool addMenuItem(Type type_id, const QString &name, double price, const QString 
     else
     {
         QMessageBox::information(nullptr, QObject::tr("Dodano"),
-                   QObject::tr("Dodano do bazy.\n\n"), QMessageBox::Ok);
+                   QObject::tr("Produkt został pomyślnie dodany do bazy.\n\n"), QMessageBox::Ok);
            return true;
     }
 };
