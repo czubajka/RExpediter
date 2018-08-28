@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1518</width>
+    <width>1362</width>
     <height>979</height>
    </rect>
   </property>
@@ -17,24 +17,44 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>10</x>
       <y>10</y>
-      <width>851</width>
+      <width>1321</width>
       <height>651</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_mains">
      <attribute name="title">
       <string>GŁÓWNE</string>
      </attribute>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1301</width>
+        <height>611</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_starters">
      <attribute name="title">
       <string>PRZYSTAWKI</string>
      </attribute>
+     <widget class="QTableView" name="tableView_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1301</width>
+        <height>611</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_desserts">
      <attribute name="title">
@@ -57,44 +77,38 @@
      </attribute>
     </widget>
    </widget>
-   <widget class="QPushButton" name="addMenuItemButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>10</x>
       <y>680</y>
-      <width>161</width>
-      <height>28</height>
+      <width>129</width>
+      <height>100</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Dodaj pozycję menu</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="deleteMenuItemButton">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>720</y>
-      <width>161</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Usuń pozycję menu</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="editMenuItemButton">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>760</y>
-      <width>161</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Edytuj pozycję menu</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="addMenuItemButton">
+       <property name="text">
+        <string>Dodaj pozycję menu</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteMenuItemButton">
+       <property name="text">
+        <string>Usuń pozycję menu</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="editMenuItemButton">
+       <property name="text">
+        <string>Edytuj pozycję menu</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -102,7 +116,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1518</width>
+     <width>1362</width>
      <height>26</height>
     </rect>
    </property>

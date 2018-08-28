@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QtSql>
+#include <QtGui>
+#include <QtCore>
 #include "database.h"
 
 namespace Ui {
@@ -23,6 +25,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QSqlDatabase db;
+    QSqlTableModel *tableModel;
+    QSqlRelationalTableModel *model;
 };
 
 #endif // MAINWINDOW_H
