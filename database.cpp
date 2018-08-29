@@ -1,15 +1,15 @@
 #include "database.h"
 
-bool addMenuItem(Type type_id, const QString &name, double price, const QString &description, Status status)
+bool addMenuItem(int type_id, const QString &name, double price, const QString &description, int status)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO menu_item (type_id, name, price, description, status)"
                   "VALUES (:type_id, :name, :price, :description, :status)");
-    query.addBindValue(type_id);
+    query.addBindValue(++type_id);
     query.addBindValue(name);
     query.addBindValue(price);
     query.addBindValue(description);
-    query.addBindValue(status);
+    query.addBindValue(status+5);
     if (!query.exec()) {
         QMessageBox::critical(nullptr, QObject::tr("Blad"),
                    QObject::tr("Nie udalo sie dodac pozycji do bazy.\n\n"), QMessageBox::Ok);

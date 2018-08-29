@@ -18,3 +18,4 @@ void OrderForm::on_buttonBox_accepted()
     OrderForm of;
     of.setModal(true);
 }
+

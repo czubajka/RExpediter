@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->setCentralWidget(ui->tableView);
 
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setDatabaseName("default");
