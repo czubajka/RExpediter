@@ -32,7 +32,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -73,12 +73,12 @@
      <widget class="QComboBox" name="comboBox">
       <item>
        <property name="text">
-        <string>danie główne</string>
+        <string>przystawka</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>przystawka</string>
+        <string>danie główne</string>
        </property>
       </item>
       <item>

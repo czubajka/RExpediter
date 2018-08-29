@@ -26,8 +26,12 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
-    QSqlTableModel *tableModel;
-    QSqlRelationalTableModel *model;
+    QSqlTableModel *model_glowne;
+    QSqlTableModel *model_przystawki;
+    QSqlTableModel *model_desery;
+    QSqlTableModel *model_napoje;
+    QSqlTableModel *model_dodatki;
+    QSqlTableModel *model_inne;
 };
 
 #endif // MAINWINDOW_H
