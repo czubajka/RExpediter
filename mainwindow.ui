@@ -182,30 +182,63 @@
      <string>EDYCJA MENU</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>1242</x>
+      <y>50</y>
+      <width>311</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Odśwież zamówienia</string>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
       <x>990</x>
-      <y>80</y>
+      <y>90</y>
       <width>561</width>
-      <height>631</height>
+      <height>831</height>
      </rect>
     </property>
-    <property name="title">
-     <string>stoliki</string>
+    <property name="widgetResizable">
+     <bool>true</bool>
     </property>
-    <widget class="QLabel" name="order_result">
+    <widget class="QWidget" name="scrollAreaWidgetContents">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>40</y>
-       <width>55</width>
-       <height>16</height>
+       <x>0</x>
+       <y>0</y>
+       <width>559</width>
+       <height>829</height>
       </rect>
      </property>
-     <property name="text">
-      <string>xxxxx</string>
-     </property>
+     <widget class="QToolButton" name="toolButton">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>20</y>
+        <width>27</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>...</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="order_result">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

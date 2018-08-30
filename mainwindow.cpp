@@ -50,10 +50,10 @@ void MainWindow::on_addMenuItemButton_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    int n = QInputDialog::getInt(this, "Podaj numer stolika", "Nowe zamówienie dla stolika:");
+    int n = QInputDialog::getInt(this, "Stolik", "Podaj nr stolika:");
     n = addOrder(n);
     db.commit();
-    ui->order_result->setText(QString::number(n));
+    buildOrders();
 }
 
 void MainWindow::buildMenu()
@@ -98,38 +98,57 @@ void MainWindow::buildMenu()
 
 };
 
-void MainWindow::buildOrders()
+bool MainWindow::buildOrders()
 {
-    //    QSqlQuery query;
-    //    query.prepare("SELECT name, price, description, status FROM menu_item "
-    //                  "WHERE type_id=?");
-    //    query.bindValue(0, type);
+        QSqlQuery query;
+        QString result = "";
+        query.prepare("SELECT order_id, table_nr, client_id FROM table_order");
+        if (!query.exec())
+        {
+            qDebug() << query.lastError();
+            query.finish();
+            return false;
+        }
+        else
+        {
+            while(query.next())
+            {
+                result +=  "<b>Zamówienie nr: </b> ";
 
-    //    if (!query.exec())
-    //    {
-    //        qDebug() << query.lastError();
-    //        return false;
-    //    }
-    //    else
-    //    {
-    //        while(query.next())
-    //        {
-    //            QString name = query.value(0).toString();
-    //            double price = query.value(1).toDouble();
-    //            QString description = query.value(2).toString();
-    //            int status = query.value(3).toInt();
+                int order_id = query.value(0).toInt();
+                result += QString::number(order_id);
 
-    //            qDebug() << "/n/n"
-    //                         "- " + name + ", cena: " + price + "/n"
-    //                         + description + ", STATUS: " + status;
-    //        }
-    //       return true;
-    //    }
+                int table = query.value(1).toInt();
+                result +=  "<br><b>stolik : </b> ";
+                result += QString::number(table);
+
+                int client_id = query.value(2).toInt();
+
+                if (client_id == 0)
+                {
+                    result += "<br> +++ zamówienie z sali +++<br><br>";
+                }
+                else
+                {
+                    result +=  "<br> +++ zamówienie online +++ <br><br>";
+                }
+
+            }
+           ui->order_result->setText(result);
+           query.finish();
+           return true;
+        }
 }
 
 
 void MainWindow::on_deleteMenuItemButton_clicked()
 {
     buildMenu();
+    db.commit();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    buildOrders();
     db.commit();
 }

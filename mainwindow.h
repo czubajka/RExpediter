@@ -29,13 +29,15 @@ private slots:
 
     void buildMenu();
 
-    void buildOrders();
+    bool buildOrders();
 
     void on_deleteMenuItemButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
-
+    QString ordersString;
     QSqlTableModel *model_glowne;
     QSqlTableModel *model_przystawki;
     QSqlTableModel *model_desery;
@@ -43,6 +45,7 @@ private:
     QSqlTableModel *model_dodatki;
     QSqlTableModel *model_inne;
     QVector<Order> *orders;
+    QVector<MenuItem> * items;
 
 
 };

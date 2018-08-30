@@ -1,5 +1,10 @@
 #include "order.h"
-#include <Vector>
+#include <QVector>
+
+class MenuItem
+{
+
+};
 
 class Order
 {
@@ -10,9 +15,17 @@ private:
     bool bill;
     //Vector <Order_element> * order_elements;
 public:
-    Order();
 
-    Order * createNewOrder();
+    Order(int order_id, int table)
+    {
+        order_nr = order_id;
+        table_nr = table;
+    }
+
+    //QString showOrder()
+    //{
+    //    return
+    //}
 };
 
 class Order_element
