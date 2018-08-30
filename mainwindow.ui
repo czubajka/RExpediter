@@ -194,6 +194,19 @@
     <property name="title">
      <string>stoliki</string>
     </property>
+    <widget class="QLabel" name="order_result">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>55</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>xxxxx</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

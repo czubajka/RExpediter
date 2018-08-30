@@ -26,12 +26,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     database.cpp \
-    menuitemform.cpp
+    menuitemform.cpp \
+    order.cpp
 
 HEADERS += \
         mainwindow.h \
     database.h \
-    menuitemform.h
+    menuitemform.h \
+    order.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

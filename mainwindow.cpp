@@ -1,11 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "menuitemform.h"
+#include <QInputDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->order_result->setText(" ");
 
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setDatabaseName("default");
@@ -43,11 +45,15 @@ void MainWindow::on_addMenuItemButton_clicked()
     MenuItemForm mif;
     mif.setModal(true);
     mif.exec();
+    db.commit();
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-    //po kliknięciu dodaj zamówienie
+    int n = QInputDialog::getInt(this, "Podaj numer stolika", "Nowe zamówienie dla stolika:");
+    n = addOrder(n);
+    db.commit();
+    ui->order_result->setText(QString::number(n));
 }
 
 void MainWindow::buildMenu()
@@ -89,35 +95,41 @@ void MainWindow::buildMenu()
     model_inne->setFilter(QString("type_id = %1").arg(INNE));
     model_inne->select();
     ui->tableView_5->setModel(model_inne);
-//    QSqlQuery query;
-//    query.prepare("SELECT name, price, description, status FROM menu_item "
-//                  "WHERE type_id=?");
-//    query.bindValue(0, type);
 
-//    if (!query.exec())
-//    {
-//        qDebug() << query.lastError();
-//        return false;
-//    }
-//    else
-//    {
-//        while(query.next())
-//        {
-//            QString name = query.value(0).toString();
-//            double price = query.value(1).toDouble();
-//            QString description = query.value(2).toString();
-//            int status = query.value(3).toInt();
-
-//            qDebug() << "/n/n"
-//                         "- " + name + ", cena: " + price + "/n"
-//                         + description + ", STATUS: " + status;
-//        }
-//       return true;
-//    }
 };
+
+void MainWindow::buildOrders()
+{
+    //    QSqlQuery query;
+    //    query.prepare("SELECT name, price, description, status FROM menu_item "
+    //                  "WHERE type_id=?");
+    //    query.bindValue(0, type);
+
+    //    if (!query.exec())
+    //    {
+    //        qDebug() << query.lastError();
+    //        return false;
+    //    }
+    //    else
+    //    {
+    //        while(query.next())
+    //        {
+    //            QString name = query.value(0).toString();
+    //            double price = query.value(1).toDouble();
+    //            QString description = query.value(2).toString();
+    //            int status = query.value(3).toInt();
+
+    //            qDebug() << "/n/n"
+    //                         "- " + name + ", cena: " + price + "/n"
+    //                         + description + ", STATUS: " + status;
+    //        }
+    //       return true;
+    //    }
+}
 
 
 void MainWindow::on_deleteMenuItemButton_clicked()
 {
     buildMenu();
+    db.commit();
 }

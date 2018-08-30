@@ -6,6 +6,7 @@
 #include <QtGui>
 #include <QtCore>
 #include "database.h"
+#include "order.h"
 
 namespace Ui {
     class MainWindow;
@@ -18,6 +19,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QSqlDatabase db;
 
 private slots:
 
@@ -27,17 +29,22 @@ private slots:
 
     void buildMenu();
 
+    void buildOrders();
+
     void on_deleteMenuItemButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QSqlDatabase db;
+
     QSqlTableModel *model_glowne;
     QSqlTableModel *model_przystawki;
     QSqlTableModel *model_desery;
     QSqlTableModel *model_napoje;
     QSqlTableModel *model_dodatki;
     QSqlTableModel *model_inne;
+    QVector<Order> *orders;
+
+
 };
 
 #endif // MAINWINDOW_H
