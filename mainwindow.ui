@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1362</width>
+    <width>1564</width>
     <height>979</height>
    </rect>
   </property>
@@ -17,14 +17,14 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>1321</width>
+      <x>0</x>
+      <y>60</y>
+      <width>981</width>
       <height>651</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="tab_mains">
      <attribute name="title">
@@ -50,7 +50,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>1301</width>
+        <width>961</width>
         <height>611</height>
        </rect>
       </property>
@@ -110,7 +110,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1311</width>
+        <width>971</width>
         <height>621</height>
        </rect>
       </property>
@@ -121,7 +121,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>680</y>
+      <y>710</y>
       <width>129</width>
       <height>100</height>
      </rect>
@@ -137,11 +137,63 @@
      <item>
       <widget class="QPushButton" name="deleteMenuItemButton">
        <property name="text">
-        <string>Usuń pozycję menu</string>
+        <string>Odśwież</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>10</y>
+      <width>476</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ZAMÓWIENIA</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>10</y>
+      <width>315</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dodaj zamówienie</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EDYCJA MENU</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>80</y>
+      <width>561</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>stoliki</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -149,7 +201,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1362</width>
+     <width>1564</width>
      <height>26</height>
     </rect>
    </property>

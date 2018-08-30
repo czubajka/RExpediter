@@ -16,7 +16,6 @@ MenuItemForm::~MenuItemForm()
     delete ui;
 }
 
-
 void MenuItemForm::on_buttonBox_accepted()
 {
     addMenuItem(ui->comboBox->currentIndex(), ui->lineEdit->text() , ui->doubleSpinBox->value(), ui->plainTextEdit->toPlainText(), ui->comboBox_2->currentIndex());

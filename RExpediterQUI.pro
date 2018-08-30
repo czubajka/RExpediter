@@ -26,14 +26,12 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     database.cpp \
-    menuitemform.cpp \
-    orderform.cpp
+    menuitemform.cpp
 
 HEADERS += \
         mainwindow.h \
     database.h \
-    menuitemform.h \
-    orderform.h
+    menuitemform.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -42,5 +40,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     mainwindow.ui \
-    menuitemform.ui \
-    orderform.ui
+    menuitemform.ui

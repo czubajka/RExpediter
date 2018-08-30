@@ -23,6 +23,12 @@ private slots:
 
     void on_addMenuItemButton_clicked();
 
+    void on_pushButton_clicked();
+
+    void buildMenu();
+
+    void on_deleteMenuItemButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;

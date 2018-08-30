@@ -23,32 +23,3 @@ bool addMenuItem(int type_id, const QString &name, double price, const QString &
            return true;
     }
 };
-
-bool buildMenu(Type type)
-{
-    QSqlQuery query;
-    query.prepare("SELECT name, price, description, status FROM menu_item "
-                  "WHERE type_id=?");
-    query.bindValue(0, type);
-
-    if (!query.exec())
-    {
-        qDebug() << query.lastError();
-        return false;
-    }
-    else
-    {
-        while(query.next())
-        {
-            QString name = query.value(0).toString();
-            double price = query.value(1).toDouble();
-            QString description = query.value(2).toString();
-            int status = query.value(3).toInt();
-
-            qDebug() << "/n/n"
-                         "- " + name + ", cena: " + price + "/n"
-                         + description + ", STATUS: " + status;
-        }
-       return true;
-    }
-};
