@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     db.setDatabaseName("default");
     db.setHostName("localhost");
     db.setPort(3306);
-    db.setDatabaseName("rexpeditor");
+    db.setDatabaseName("rexpediter");
     db.setUserName("root");
     db.setPassword("Q188q199");
 
@@ -82,13 +82,13 @@ void MainWindow::buildMenu()
     model_napoje->setTable("menu_item");
     model_napoje->setFilter(QString("type_id = %1").arg(NAPOJ));
     model_napoje->select();
-    ui->tableView_5->setModel(model_napoje);
+    ui->tableView_6->setModel(model_napoje);
 
     model_inne = new QSqlTableModel(this);
     model_inne->setTable("menu_item");
     model_inne->setFilter(QString("type_id = %1").arg(INNE));
     model_inne->select();
-    ui->tableView_6->setModel(model_inne);
+    ui->tableView_5->setModel(model_inne);
 //    QSqlQuery query;
 //    query.prepare("SELECT name, price, description, status FROM menu_item "
 //                  "WHERE type_id=?");
