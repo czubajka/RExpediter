@@ -41,6 +41,12 @@ private slots:
 
     void readItems();
 
+    void readFullOrders();
+
+    void orderButtonClicked(int);
+
+    void clearLayout(QLayout *layout);
+
 private:
     Ui::MainWindow *ui;
     QString ordersString;
@@ -52,6 +58,8 @@ private:
     QSqlTableModel *model_inne;
     std::vector<Order> orders;
     std::vector<MenuItem> items;
+    QSignalMapper *signalMapper;
+
 };
 
 #endif // MAINWINDOW_H

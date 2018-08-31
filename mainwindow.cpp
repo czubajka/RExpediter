@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent)
         {
           buildMenu();
         }
+
+    signalMapper = new QSignalMapper(this);
+    connect(signalMapper, SIGNAL(mapped(int)), this, SLOT(orderButtonClicked(int)));
 }
 
 MainWindow::~MainWindow()
@@ -39,6 +42,7 @@ MainWindow::~MainWindow()
     QSqlDatabase db = QSqlDatabase::database();         //static func QSqlDatabase::database() returns a pointer to the default (or given as param) database
     db.close();
     db.removeDatabase("default");
+    delete signalMapper;
 }
 
 void MainWindow::on_addMenuItemButton_clicked()
@@ -55,6 +59,7 @@ void MainWindow::on_pushButton_clicked()
     n = addOrder(n);
     db.commit();
     buildOrders();
+    db.commit();
 }
 
 void MainWindow::buildMenu()
@@ -103,6 +108,15 @@ bool MainWindow::buildOrders()
 {
         QSqlQuery query;
         QString result = "";
+
+//        qDeleteAll(ui->buttonsSpace->children());       //cleans buttons
+//        QLayoutItem *child;
+//        while ((child = ui->buttonsSpace->takeAt(0)) != nullptr) {
+//            ui->buttonsSpace->removeItem(ui->buttonsSpace->takeAt(0));
+//            delete child->widget();
+//        }
+        clearLayout(ui->buttonsSpace);
+
         query.prepare("SELECT order_id, table_nr, client_id FROM table_order");
         if (!query.exec())
         {
@@ -114,6 +128,16 @@ bool MainWindow::buildOrders()
         {
             while(query.next())
             {
+                //make button
+
+                QPushButton * a = new QPushButton();
+                ui->buttonsSpace->addWidget(a);
+                a->setText("Zamówienie: " + query.value(0).toString());
+                connect(a, SIGNAL(clicked()), signalMapper, SLOT(map()));
+                signalMapper->setMapping(a, query.value(0).toInt());
+
+                //end make button
+
                 result +=  "<b>Zamówienie nr: </b> ";
 
                 int order_id = query.value(0).toInt();
@@ -176,6 +200,13 @@ void MainWindow::readItems()
 
 }
 
+void MainWindow::readFullOrders()
+{
+    ordersString = "";
+
+    ui->order_result->setText(ordersString);
+}
+
 
 void MainWindow::on_deleteMenuItemButton_clicked()
 {
@@ -191,3 +222,21 @@ void MainWindow::on_pushButton_2_clicked()
     buildOrders();
     db.commit();
 }
+
+ void MainWindow::orderButtonClicked(int id)
+ {
+     qDebug() << id;
+ }
+
+ void MainWindow::clearLayout(QLayout *layout)
+ {
+     QLayoutItem *child;
+     while ((child = layout->takeAt(0)) != 0) {
+     if(child->layout() != 0)
+     clearLayout( child->layout() );
+     else if(child->widget() != 0)
+     delete child->widget();
+
+         delete child;
+ }
+ };
