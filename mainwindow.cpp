@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "menuitemform.h"
 #include <QInputDialog>
+#include "order.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -133,6 +134,10 @@ bool MainWindow::buildOrders()
                     result +=  "<br> +++ zamówienie online +++ <br><br>";
                 }
 
+                //elementy zamówienia
+
+
+
             }
            ui->order_result->setText(result);
            query.finish();
@@ -140,11 +145,45 @@ bool MainWindow::buildOrders()
         }
 }
 
+void MainWindow::buildItems(/*std::vector <MenuItem>& v*/)
+{
+    items.clear();
+    QSqlQuery query;
+    query.prepare("SELECT menu_item_id, type_id, name, price, description, status FROM menu_item");
+    if (!query.exec())
+    {
+        qDebug() << query.lastError();
+        query.finish();
+    }
+    else
+    {
+        while(query.next())
+        {
+            items.push_back(*new MenuItem(query.value(0).toInt(), query.value(1).toInt(), query.value(2).toString(), query.value(3).toDouble(), query.value(4).toString(), query.value(5).toInt()));
+        }
+        query.finish();
+    }
+    qDebug() << "W menu znajduje sie" << QString::number(items.size()) << "elementów";
+}
+
+void MainWindow::readItems()
+{
+   qDebug() << items.size() << " elementów    ";
+   for (auto item: items)
+   {
+       qDebug() << "nazwa: " << item.name << ", ID: " << item.menu_item_id << ", cena: " << item.price;
+   }
+
+}
+
 
 void MainWindow::on_deleteMenuItemButton_clicked()
 {
     buildMenu();
     db.commit();
+    buildItems();
+    db.commit();
+    readItems();    //for debug
 }
 
 void MainWindow::on_pushButton_2_clicked()

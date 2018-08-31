@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QtGui>
 #include <QtCore>
+#include <vector>
 #include "database.h"
 #include "order.h"
 
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     QSqlDatabase db;
 
 private slots:
@@ -31,9 +33,13 @@ private slots:
 
     bool buildOrders();
 
+    void buildItems(/*std::vector <MenuItem>& v*/);         //wczytuje jako obiekty do wektora wszystkie lelementy menu z bazy
+
     void on_deleteMenuItemButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    void readItems();
 
 private:
     Ui::MainWindow *ui;
@@ -44,10 +50,8 @@ private:
     QSqlTableModel *model_napoje;
     QSqlTableModel *model_dodatki;
     QSqlTableModel *model_inne;
-    QVector<Order> *orders;
-    QVector<MenuItem> * items;
-
-
+    std::vector<Order> orders;
+    std::vector<MenuItem> items;
 };
 
 #endif // MAINWINDOW_H
